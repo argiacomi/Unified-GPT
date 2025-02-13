@@ -1,0 +1,75 @@
+seed: 123
+device: 'mps' # only relevant if using pytorch as model backend
+data:
+  url: 'https://en.wikisource.org/wiki/The_Verdict'
+  file_path: './data/the-verdict.txt'
+  tokenizer: 'gpt2'
+  max_length: 256
+  stride: 256
+  debug:
+    enabled: false
+    batch_size: 8
+    max_length: 4
+    stride: 4
+
+model:
+  framework: 'tensorflow' # options: "tensorflow", "pytorch"
+  variant: 'builtin' # options: "builtin", "custom"
+  size: 'gpt_small' # options: "gpt_small", "gpt_medium", "gpt_large", "gpt_xl"
+  configs:
+    gpt_small:
+      vocab_size: 50257
+      context_length: 256
+      emb_dim: 768
+      n_heads: 12
+      n_layers: 12
+      drop_rate: 0.1
+      qkv_bias: false
+    gpt_medium:
+      vocab_size: 50257
+      context_length: 256
+      emb_dim: 1024
+      n_heads: 16
+      n_layers: 24
+      drop_rate: 0.1
+      qkv_bias: false
+    gpt_large:
+      vocab_size: 50257
+      context_length: 256
+      emb_dim: 1280
+      n_heads: 20
+      n_layers: 36
+      drop_rate: 0.1
+      qkv_bias: false
+    gpt_xl:
+      vocab_size: 50257
+      context_length: 256
+      emb_dim: 1600
+      n_heads: 25
+      n_layers: 48
+      drop_rate: 0.1
+      qkv_bias: false
+
+training:
+  batch_size: 2
+  num_epochs: 15
+  train_ratio: 0.8
+  optimizer:
+    type: 'adamw'
+    initial_lr: 3e-05
+    peak_lr: 0.001
+    min_lr: 1e-06
+    weight_decay: 0.1
+    clipnorm: 1.0
+    lr_schedule: 'cosine_decay' # options: "cosine_decay", "warmup_cosine_decay"
+    warmup_ratio: 0.2
+
+generation:
+  max_new_tokens: 15
+  temperature: 1.0
+  top_k: 25
+  eos_id: null
+
+output:
+  log_dir: 'logs'
+  checkpoint_dir: 'checkpoints'
