@@ -12,35 +12,32 @@ Modular repository for training example GPT-based language models. Models built 
 
 ## Repository Structure
 
-Unified-GPT/
+<pre>
+Unified-GPT/  
 ├── README.md
-├── config
-│   └── config.yaml
-├── data
-│   ├── dataset.py
-│   └── the-verdict.txt
-├── directory-structure.md
-├── models
-│   ├── init.py
-│   ├── pytorch
-│   │   ├── gpt_builtin.py
-│   │   └── gpt_custom.py
-│   └── tensorflow
-│   ├── gpt_builtin.py
-│   └── gpt_custom.py
-├── requirements.txt
-├── test_notebook.ipynb
-├── training
-│   ├── callbacks.py
-│   ├── train_tf.py
-│   └── train_torch.py
 ├── unifiedGPT.py
-└── utils
-├── generate.py
-├── lr_scheduler.py
-├── plots.py
-└── utils.py
-
+├── config/  
+│   └── config.yaml
+├── data/  
+│   └── dataset.py
+├── models/  
+│   ├── tensorflow/  
+│   │   ├── gpt_builtin.py 
+│   │   └── gpt_custom.py 
+│   └── pytorch/  
+│     ├── gpt_builtin.py
+│     └── gpt_custom.py
+├── training/  
+│   ├── train_tf.py
+│   ├── train_torch.py
+│   └── callbacks.py
+└── utils/  
+    ├── lr_schedule.py
+    ├── plots.py
+    ├── utils.py
+    └── generate.py
+</pre>
+  
 ## Installation
 
 1. **Clone the repository:**
