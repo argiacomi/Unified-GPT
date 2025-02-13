@@ -13,28 +13,33 @@ Modular repository for training example GPT-based language models. Models built 
 ## Repository Structure
 
 Unified-GPT/
-├── README.md # This file
-├── unifiedGPT.py # Entry point for training
-├── config/
-│ └── config.yaml # Global configuration file
-├── data/
-│ └── dataset.py # Data loading & tokenization (TF and PyTorch)
-├── models/
-│ ├── tensorflow/
-│ │ ├── gpt_builtin.py # GPT using TensorFlow's built-in layers
-│ │ └── gpt_custom.py # GPT using custom TensorFlow components
-│ └── pytorch/
-│ ├── gpt_builtin.py # GPT using PyTorch's built-in layers
-│ └── gpt_custom.py # GPT using custom PyTorch components
-├── training/
-│ ├── train_tf.py # TensorFlow training loop
-│ ├── train_torch.py # PyTorch training loop
-│ └── callbacks.py # Logging and text generation callbacks
-│── utils/
-│ ├── lr_schedule.py # Learning rate schedulers for TF and PyTorch
-├── plots.py # Utility functions for plotting metrics
-├── utils.py # Miscellaneous utilities (e.g., config loader, set_device)
-└── generate.py # Unified text generation interface
+├── README.md
+├── config
+│   └── config.yaml
+├── data
+│   ├── dataset.py
+│   └── the-verdict.txt
+├── directory-structure.md
+├── models
+│   ├── init.py
+│   ├── pytorch
+│   │   ├── gpt_builtin.py
+│   │   └── gpt_custom.py
+│   └── tensorflow
+│   ├── gpt_builtin.py
+│   └── gpt_custom.py
+├── requirements.txt
+├── test_notebook.ipynb
+├── training
+│   ├── callbacks.py
+│   ├── train_tf.py
+│   └── train_torch.py
+├── unifiedGPT.py
+└── utils
+├── generate.py
+├── lr_scheduler.py
+├── plots.py
+└── utils.py
 
 ## Installation
 
